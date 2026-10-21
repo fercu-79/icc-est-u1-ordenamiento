@@ -3,9 +3,6 @@ public class Selection {
     public void sort (int [] arreglo) {
         int cambios = 0;
         int comparaciones = 0;
-        System.out.println("---Selection Sort---");
-        System.out.println("Original");
-
         for ( int i = 0; i < arreglo.length; i++) {
             System.out.println(arreglo[i] + " - ");
             int min = i;
