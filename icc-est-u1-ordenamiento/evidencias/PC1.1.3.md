@@ -7,7 +7,7 @@
 ![alt text](assets/5.png)
 
 
-## Explicacion
+## Explicación
 
  Mediante un condicional simple, se verifica si el elemento guardado en el auxiliar, cambio de posición dentro del arreglo, por lo tanto impreme el arreglo y ordenado.
 
