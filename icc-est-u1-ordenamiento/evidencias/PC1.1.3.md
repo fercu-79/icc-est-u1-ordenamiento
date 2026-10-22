@@ -2,16 +2,16 @@
 
 21 de octubre del 2026
 
-## 1 Captura del código:
+## Código:
 
 ![alt text](assets/5.png)
 
 
-## 2 Explicacion de como se muestra los resultados:
+## Explicacion
 
  Mediante un condicional simple, se verifica si el elemento guardado en el auxiliar, cambio de posición dentro del arreglo, por lo tanto impreme el arreglo y ordenado.
 
 
-## 3 Captura Terminal
+## Terminal
 
 ![alt text](assets/6.png)
