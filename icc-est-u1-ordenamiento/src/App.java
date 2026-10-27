@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.Comparator;
-
 import models.Estudiante;
 
 public class App {
@@ -74,24 +73,23 @@ public class App {
         System.out.println("Original");
         Insertion insertion = new Insertion();
         printArreglo(d);
-        Insertion.sort(d);
+        insertion.sort(d);
         printArreglo(d);
     }
-
-        public static void printArreglo(int [] arr) {
+    public static void printArreglo(int [] arr) {
         for (int i = 0; i < arr.length; i++)
             System.out.print(arr[i] + " - " );
         System.out.println();            
-        }
+   }
+ 
 
-
-        public static void printArregloEstudiantes(Estudiante[] arr) {
-        for (int i = 0; i < arr.length; i++)
+    public static void printArregloEstudiantes(Estudiante[] arr) {
+        for (int i = 0; i < arr.length; i++){
             System.out.print(arr[i] + " - " );
-        System.out.println();            
         }
-
-
+        
+        System.out.println();            
+    }
 }
 
 

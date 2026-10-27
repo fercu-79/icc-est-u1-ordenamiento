@@ -1,6 +1,6 @@
 public class Insertion {
 
-    public static void sort (int[] a){
+    public void sort (int[] a){
         for (int i = 1; i < a.length; i++) {
             int key = a[i];
             int j = i - 1;
