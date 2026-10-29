@@ -9,8 +9,12 @@ public class App {
         // runEjemplosPrimitivos();
         // runEjemplosObjetos();
         // runComparaciones();
-        runComparatorsObj();
-        runComparatorsObj2();
+        // runComparatorsObj();
+        // runComparatorsObj2();
+
+
+        Comparators comparators = new Comparators ();
+        
     }
 
     public static void runComparatorsObj2(){
@@ -22,6 +26,7 @@ public class App {
         };
 
         Comparator <Estudiante> compNota = Comparator.comparingDouble(e -> e.getNota());
+
         Arrays.sort(estudiantes, compNota);
         for (int i = 0; i < estudiantes.length; i++){
             System.out.print(estudiantes[i] + " - " );
