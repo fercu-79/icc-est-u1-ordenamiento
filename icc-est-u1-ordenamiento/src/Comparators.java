@@ -207,9 +207,14 @@ public class Comparators {
         System.out.println("Ejemplo 11");
         List<Estudiante> lista = new ArrayList<>(estList);
         Comparator<Estudiante> comparator = Comparator
-                .<Estudiante>comparingDouble(e -> { double nota = e.getNota())
-                if (e < 7){}
-                .reversed()
+                .<Estudiante>comparingDouble(e -> { double nota = e.getNota();
+                if (nota < 7){
+                    nota += 2;
+                } 
+                if (nota < 8){
+                    nota = 8;
+                }
+                return nota;
                 .thenComparing(Estudiante::getNombre);
         lista.sort(comparator);
         print(lista);
