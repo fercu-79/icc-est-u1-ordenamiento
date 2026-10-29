@@ -36,8 +36,14 @@ public class Comparators {
         ejemplo8();
         System.out.println("------------------------------------------");
         ejemplo9();
+        System.out.println("------------------------------------------");
+        ejemplo10();
+        System.out.println("------------------------------------------");
+        ejemplo11();
+
     }
 
+    // Imprimir
     private void print(List<Estudiante> list){
         // for est in list:
         for(Estudiante e : list ){
@@ -96,7 +102,7 @@ public class Comparators {
     public void ejemplo4(){
         System.out.println("Ejemplo 4");
         List<Estudiante> lista = new ArrayList<>(estList);
-        Comparator<Estudiante> comparator = Comparator.comparing(Estudiante::getNombre);
+        Comparator<Estudiante> comparator = Comparator.comparing(Estudiante::getNombre).reversed();
         lista.sort(comparator);
         print(lista);
     }
@@ -104,7 +110,7 @@ public class Comparators {
     /**
      * Ordenar por nota Ascendentemente
      * Comparator -> compara DOS ITEMS
-     * Referencia
+     * Lambda
      */
     public void ejemplo5(){
         System.out.println("Ejemplo 5");
@@ -118,7 +124,7 @@ public class Comparators {
     /**
      * Ordenar por nombre Ascendentemente
      * Comparator -> compara DOS ITEMS
-     * Referencia
+     * Lambda
      */
     public void ejemplo6(){
         System.out.println("Ejemplo 6");
@@ -132,7 +138,7 @@ public class Comparators {
     /**
      * Ordenar por nota Descendentemente
      * Comparator -> compara DOS ITEMS
-     * Referencia
+     * Lambda
      */
     public void ejemplo7(){
         System.out.println("Ejemplo 7");
@@ -146,7 +152,7 @@ public class Comparators {
     /**
      * Ordenar por nota Ascendentemente y NOMBRE Descendente
      * Comparator -> compara DOS ITEMS
-     * Referencia
+     * Lambda
      */
     public void ejemplo8(){
         System.out.println("Ejemplo 8");
@@ -173,7 +179,7 @@ public class Comparators {
         List<Estudiante> lista = new ArrayList<>(estList);
         Comparator<Estudiante> comparator =  Comparator
                 .comparingDouble(Estudiante::getNota)
-                .thenComparing(Estudiante::getNombre);
+                .thenComparing(Comparator.comparing(Estudiante::getNombre).reversed());
         lista.sort(comparator);
         print(lista);
     }
@@ -198,27 +204,47 @@ public class Comparators {
     /**
      * Ordenar por nota ajustada Ascendentemente y NOMBRE Descendente
      * Sumar 2 puntos si la nota es menor que 7
-     * La nota maxima permitida es 8
+     * La nota maxima permitida es 10
      * Comparator -> por valor calculado
      * 1 comparador lamda con bloque de instrucciones
      * 2 comparador referencia con orden inverso
      */
+    
     public void ejemplo11(){
         System.out.println("Ejemplo 11");
-        List<Estudiante> lista = new ArrayList<>(estList);
+        List<Estudiante> lista = new ArrayList<>();
+        for (Estudiante e : estList) {
+            lista.add(new Estudiante(e.getNombre(), e.getNota()));
+        }
         Comparator<Estudiante> comparator = Comparator
-                .<Estudiante>comparingDouble(e -> { double nota = e.getNota();
-                if (nota < 7){
-                    nota += 2;
-                } 
-                if (nota < 8){
-                    nota = 8;
-                }
-                return nota;
-                .thenComparing(Estudiante::getNombre);
+                .comparingDouble((Estudiante e) -> { 
+                    double nota = e.getNota();
+                    if (nota < 7){
+                        nota += 2;
+                    } 
+                    if (nota > 10){
+                        nota = 10;
+                    }
+                    return nota;
+                })           
+                .thenComparing(Comparator.comparing(Estudiante::getNombre).reversed());
+
         lista.sort(comparator);
+
+        for (Estudiante e : lista) {
+            double nota = e.getNota();
+            if (nota < 7){
+                nota += 2;
+            } 
+            if (nota > 10){
+                nota = 10;
+            }
+            e.setNota(nota);
+        }
+
         print(lista);
     }
     
 }
+
 
