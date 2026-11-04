@@ -13,7 +13,8 @@ public class App {
         // runComparatorsObj2();
 
 
-        Comparators comparators = new Comparators ();
+        //Comparators comparators = new Comparators ();
+        Comparable comparable = new Comparable();
         
     }
 
