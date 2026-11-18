@@ -1,5 +1,11 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
+        long nanoTime = System.nanoTime();
+
+        long currentTimeMillis = System.currentTimeMillis();
+        
+        System.out.println("Nano Time: " + nanoTime);
+        System.out.println("Current Time (ms): " + currentTimeMillis);
     }
 }
